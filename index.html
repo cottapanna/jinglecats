@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://grayson-choi.github.io/advent_calendar/">
+  <meta property="og:title" content="스파르타코딩클럽 크리스마스 디데이 캘린더">
+  <meta property="og:image" content="image/OGimage.png">
+  <meta property="og:description" content="크리스마스까지 하루가 기다려지는 즐거움, 크리스마스 디데이 캘린더를 함께 만들어봐요!">
+  <meta property="og:site_name" content="SCC Advent Calendar">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <title>Sparta Advent Calendar 2023</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="snow.css">
+  <link rel="stylesheet" href="share.css">
+  <link rel="stylesheet" href="music.css">
+  <style>
+    .card-text {
+      position: relative;
+    }
+
+    .card-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="snow-wrap">
+    <div></div>
+  </div>
+  <section class="grid-1">
+    <div class="title flex-col item-baseline">
+      <img src="image/merry.png">
+      <div class="countdown">크리스마스까지 <span id="countdown" class="countdown"></span>남음 </div>
+    </div>
+    <div class="day-1">
+      <label>
+        <input type="checkbox">
+        <div class="door">
+          <div class="front">
+            <span class="date-num">1</span>
+          </div>
+          <div class="back"></div>
+        </div>
+      </label>
+    </div>
+    <div class="day-2">
+      <label>
+        <input type="checkbox">
+        <div class="door">
+          <div class="front">
+            <span class="date-num">2</span>
+          </div>
+          <div class="back"></div>
+        </div>
+      </label>
+    </div>
+    <div class="day-3">
+      <label>
+        <input type="checkbox">
+        <div class="door">
+          <div class="front">
+            <span class="date-num">3</span>
+          </div>
+          <div class="back"></div>
+        </div>
+      </label>
+    </div>
+    <div class="day-4">
+      <label>
+        <input type="checkbox">
+        <div class="door">
+          <div class="front">
+            <span class="date-num">4</span>
+          </div>
+          <div class="back"></div>
+        </div>
+      </label>
+    </div>
+    <div class="day-5">
+      <label>
+        <input type="checkbox">
+        <div class="door">
+          <div class="front">
+            <span class="date-num">5</span>
+          </div>
+          <div class="back"></div>
+        </div>
+      </label>
+    </div>
+  </section>
+
+  <footer>
+    <div class="flex-row">
+      <button id="shareButton">공유하기</button>
+      <button id="studyButton"><a href="https://spartacodingclub.kr/">만들러 가기</a></button>
+    </div>
+    <div class="flex-row">
+      <audio class="bgm" src="y2mate.com - Jingle Cats.mp3" preload="auto" style="display: none;"></audio>
+    </div>
+    <p class="copyright">Copyright ⓒ TeamSparta All rights reserved. ☃️</p>
+  </footer>
+
+  <script src="index.js"></script>
+  <script src="share.js"></script>
+  <script src="music.js"></script>
+  <script src="countdown.js"></script>
+
+  <audio autoplay controls>
+    <source src="y2mate.com - Jingle Cats.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- 모달 내부 이미지 엘리먼트 -->
+  <img id="modalImage" src="기존이미지.jpg" alt="모달 이미지">
+
+  <!-- 모달 스크립트 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var modalButton = document.getElementById('openModalButton');
+      var modalImage = document.getElementById('modalImage');
+      modalButton.addEventListener('click', function () {
+        modalImage.src = '새로운이미지.jpg';
+        // 모달 열기 코드 (필요하면 추가)
+      });
+    });
+  </script>
+
+  <!-- Countdown 스크립트 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var christmasDate = new Date('2023-12-25');
+      var currentDate = new Date();
+      var daysUntilChristmas = Math.max(0, Math.floor((christmasDate - currentDate) / (1000 * 60 * 60 * 24)));
+      var countdownElement = document.getElementById('countdown');
+      countdownElement.textContent = daysUntilChristmas + '일';
+    });
+  </script>
+</body>
+
+</html>
